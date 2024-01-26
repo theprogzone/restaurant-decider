@@ -11,9 +11,7 @@ import com.govtech.restaurantdecider.repository.RestaurantRepository;
 import com.govtech.restaurantdecider.repository.SessionRepository;
 import com.govtech.restaurantdecider.service.SessionService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -72,6 +70,5 @@ public class SessionServiceImpl implements SessionService {
         restaurant.setSelected(true);
         restaurantRepository.save(restaurant);
     }
-
 
 }

@@ -1,4 +1,4 @@
 package com.govtech.restaurantdecider.dto;
 
-public record LoginResponse(String firstName, String lastName, String token, String sessionId) {
+public record LoginResponse(String firstName, String lastName, String token) {
 }

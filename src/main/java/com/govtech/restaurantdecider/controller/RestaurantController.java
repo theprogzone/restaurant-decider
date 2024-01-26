@@ -18,7 +18,7 @@ public class RestaurantController {
     @PostMapping
     public ResponseEntity<RestaurantResponse> addRestaurant(@RequestBody RestaurantRequest restaurantRequest) {
         restaurantService.createRestaurantChoice(restaurantRequest);
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(null, HttpStatus.CREATED);
     }
 
     @GetMapping

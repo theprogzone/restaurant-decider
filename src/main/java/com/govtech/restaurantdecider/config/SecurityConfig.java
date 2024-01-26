@@ -26,10 +26,10 @@ public class SecurityConfig {
                 .addFilterBefore(new JwtAuthFilter(userAuthenticationProvider), BasicAuthenticationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .securityMatcher("/h2-console/**")
+                .securityMatcher("/h2-console/**", "/actuator/**", "/v3/api-docs/**")
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(HttpMethod.POST, "api/v1/login", "api/v1/register", "/h2-console").permitAll()
-                        .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers("/h2-console/**", "/actuator/**", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated())
         ;
         return http.build();

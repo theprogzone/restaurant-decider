@@ -17,7 +17,7 @@ public class SessionController {
 
     private final SessionService sessionService;
 
-    @PostMapping
+    @PutMapping
     public ResponseEntity<SessionResponse> sessionHandler(@RequestHeader Map<String, String> headers, @RequestBody SessionRequest sessionRequest) {
         return new ResponseEntity<>(sessionService.handleSession(headers, sessionRequest), HttpStatus.OK);
     }

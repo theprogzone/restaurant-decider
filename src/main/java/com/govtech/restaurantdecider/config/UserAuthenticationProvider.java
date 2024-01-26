@@ -8,7 +8,6 @@ import com.govtech.restaurantdecider.dto.UserDTO;
 import com.govtech.restaurantdecider.entity.User;
 import com.govtech.restaurantdecider.exception.ValidationException;
 import com.govtech.restaurantdecider.repository.UserRepository;
-import com.govtech.restaurantdecider.service.UserService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,12 +20,11 @@ import java.util.Base64;
 import java.util.Collections;
 import java.util.Date;
 
-
 @RequiredArgsConstructor
 @Component
 public class UserAuthenticationProvider {
 
-    @Value("${security.jwt.token.secret-key:abcd1234}")
+    @Value("${security.jwt.token.secret-key}")
     private String secretKey;
 
     private final UserRepository userRepository;
@@ -39,7 +37,7 @@ public class UserAuthenticationProvider {
 
     public String createToken(User user) {
         Date now = new Date();
-        Date validity = new Date(now.getTime() + 1800000); // 1 hour
+        Date validity = new Date(now.getTime() + 1800000); // 30 min
 
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         return JWT.create()

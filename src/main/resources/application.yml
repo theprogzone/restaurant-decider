@@ -15,5 +15,3 @@ spring:
       settings.web-allow-others: false
 
 security.jwt.token.secret-key: abcd1234
-
-# http://localhost:8080/h2-console
