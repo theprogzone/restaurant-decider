@@ -158,5 +158,5 @@ In this application we are using H2 in-memory database. To view and query the da
 * For the time being, I'm keeping some credentials and secret keys in the '''application.yml''' file. In the production level we can keep them in a secure store like aws secrets manager.
 * No user registration API has been implemented in the application yet. So until I'm implementing user registration api, we can use below credentials for the authentication purposes.
 
-Username : admin
-Password : admin1234
+Username : ```admin```
+Password : ```admin1234```
